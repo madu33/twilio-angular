@@ -4,3 +4,85 @@
 .timepicker-backdrop-overlay{
   z-index: 10000000 !important;
 }
+*{
+  margin: 0;
+  padding: 0;
+}
+.clearfix {
+  overflow: auto;
+}
+.container{
+  margin: 0 auto;
+  width: 1000px;
+}
+.left button{
+  margin-top:  3%;
+  float: left;
+}
+.header{
+  width: 100%;
+  height: 100px;
+  background: #ff4081;
+  text-align: center;
+  line-height: 100px;
+  font-size: 30px;
+  font-family: Georgia;
+}
+#inputFile{
+  margin: 5%;
+  float: left;
+}
+.body{
+  background: #eeeeee;
+  margin: 0 auto;
+
+}
+.clearfix
+
+.left{
+  margin-top: 20px;
+  width: 50%;
+  height: 200px;
+  float: left;
+
+}
+.right{
+  margin-top: 20px;
+  width: 50%;
+  height: 500px;
+  float: right;
+
+}
+.child-left{
+  margin: 5%;
+  width: 40%;
+  height: 50px;
+  float: left;
+}
+.child-right{
+
+  margin: 7% 5% 5% 5%;
+  width: 40%;
+  height: 50px;
+  float: right;
+}
+.child-left-2{
+  float: left;
+  width: 100%;
+}
+.child-left-2 textarea{
+  margin: 0% 5% 0 5%;
+  height: 100px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Arno Pro Smbd Subhead";
+  width: 90%;
+}
+.child-left-2 button{
+  width: 100px;
+  margin: 2% 5% 2% 0;
+  float: right;
+
+}
+
+
