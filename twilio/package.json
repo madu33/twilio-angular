@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/animations": "^14.2.0",
     "@angular/cdk": "^14.2.5",
     "@angular/common": "^14.2.0",
@@ -21,6 +22,8 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "angular-csv": "^1.0.0",
+    "force": "^0.0.3",
+    "ng-angular-popup": "^0.2.0",
     "ngx-csv-parser": "^1.2.0",
     "ngx-material-timepicker": "^5.5.3",
     "rxjs": "~7.5.0",

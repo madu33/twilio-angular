@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {DashboardService} from "../../service/dashboard.service";
 import {NumberDTO} from "../../dto/NumberDTO";
 import {MessageAndTime} from "../../dto/MessageAndTime";
+import {NgToastService} from "ng-angular-popup";
 
 
 
@@ -24,7 +25,7 @@ export class DashboardComponent implements OnInit {
   numberList: Array<NumberDTO> = new Array<NumberDTO>();
   messageAndTime=new MessageAndTime();
 
-  constructor(private dashboardService:DashboardService) { }
+  constructor(private dashboardService:DashboardService,private toast: NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -43,12 +44,22 @@ export class DashboardComponent implements OnInit {
 
   }
   setNumbers(){
-    var split=this.fileContent.split('\n');
+    this.numberList= new Array<NumberDTO>();
+    let split=this.fileContent.split('\n');
     for (let i=0;i<split.length;i++){
       let numberDTO = new NumberDTO();
-      numberDTO.number=split[i];
-      this.numberList.push(numberDTO);
+      if(split[i].length>=10){
+        numberDTO.number=split[i];
+        this.numberList.push(numberDTO);
+      }
     }
+    console.log(this.numberList.length);
+    if(this.numberList.length>0){
+      this.toast.success({detail:'Successful Added',summary:'Added Phone Numbers',duration:5000});
+    }else{
+      this.toast.error({detail:'Please Try Again',summary:'No Number Here',duration:5000});
+    }
+
   }
 
   setTimeAndMessage() {
@@ -70,14 +81,13 @@ export class DashboardComponent implements OnInit {
     console.log(hour);
     console.log(minute);
     console.log('---------------------------------------------------');
-
     this.dashboardService.saveNumberList(this.numberList).subscribe(obj=>{
       if(obj){
         this.dashboardService.setTimeAndMessage(this.messageAndTime).subscribe(obj=>{
-          alert('successful setup');
+          this.toast.success({detail:'Successful Added',summary:'',duration:5000});
         });
       }else{
-        alert('please check your number list');
+        this.toast.error({detail:'Please Check Server',summary:'',duration:5000});
       }
     });
 

@@ -1,11 +1,17 @@
 <div class="container">
   <div class="header">Twilio SMS</div>
-  <div class="body clearfix">
-    <div class="left">
-      <input type="file" id="inputFile" (change)="onChange($event)">
+  <div class="body clearfix" >
+    <div class="left clearfix">
+      <div class="left-area">
+        <input type="file" id="inputFile" (change)="onChange($event)">
 
-      <button mat-raised-button color="accent" (click)="setNumbers()">Confirm Numbers</button>
-      <pre style="float: left"> {{fileContent}} </pre>
+      </div>
+
+      <div class="right-area">
+        <h4 >  {{fileContent}} </h4>
+      </div>
+
+
     </div>
     <div class="right clearfix">
       <div class="child-left">
@@ -22,8 +28,10 @@
         </div>
       </div>
       <div class="child-left-2">
-        <textarea [(ngModel)]="message"></textarea>
-        <button mat-raised-button color="accent" (click)="setTimeAndMessage()">Submit</button>
+        <textarea [(ngModel)]="message" placeholder="  Please Enter Your Message"></textarea>
+        <button mat-raised-button color="accent" (click)="setTimeAndMessage()" style="background: #00bffe">Submit</button>
+        <button mat-raised-button color="accent" (click)="setNumbers()" style="background: #00bffe">Confirm No</button>
+
       </div>
     </div>
   </div>
